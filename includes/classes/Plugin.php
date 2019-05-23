@@ -138,9 +138,16 @@ class Plugin {
 		}
 	}
 
+	/**
+	 * Load required files.
+	 *
+	 * @return void
+	 */
 	public function setup_files() {
 
 		require_once PNO_REC_PLUGIN_DIR . 'includes/settings.php';
+		require_once PNO_REC_PLUGIN_DIR . 'includes/scripts.php';
+		require_once PNO_REC_PLUGIN_DIR . 'includes/markup.php';
 
 	}
 

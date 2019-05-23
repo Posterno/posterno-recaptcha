@@ -2,10 +2,10 @@
 /**
  * Register new settings for the options panel.
  *
- * @package     posterno
+ * @package     posterno-recaptcha
  * @copyright   Copyright (c) 2018, Sematico, LTD
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
- * @since       0.1.0
+ * @since       1.0.0
  */
 
 use Carbon_Fields\Field;
