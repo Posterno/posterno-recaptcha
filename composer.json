@@ -1,0 +1,32 @@
+{
+	"name": "posterno/posterno-recaptcha",
+	"description": "Addon for Posterno, stop spam registrations on your website for free.",
+	"type": "wordpress-plugin",
+	"keywords": [
+		"wordpress"
+	],
+	"homepage": "https://posterno.com",
+	"minimum-stability": "dev",
+	"authors": [{
+		"name": "Posterno",
+		"email": "hello@posterno.com"
+	}],
+	"require": {
+		"php": ">=5.6",
+		"composer/installers": "~1.0",
+		"posterno/addon-requirements-check": "dev-master"
+	},
+	"autoload": {
+		"psr-4": {
+			"PosternoRecaptcha\\": "src"
+		}
+	},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "0.4.4",
+		"pressmodo/phpcs-config": "dev-master"
+	},
+	"scripts": {
+		"lint": "phpcs .",
+		"lint-fix": "phpcbf ."
+	}
+}
