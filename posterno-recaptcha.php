@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     Posterno Recaptcha
+ * Plugin Name:     Posterno reCAPTCHA
  * Plugin URI:      https://posterno.com
  * Description:     Addon for Posterno, stop spam registrations on your website for free.
  * Author:          Posterno
@@ -33,12 +33,12 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 }
 
 add_action(
-	'plugins_loaded',
+	'pno_after_init',
 	function() {
 
 		$requirements_check = new \PosternoRequirements\Check(
 			array(
-				'title' => 'Posterno Recaptcha',
+				'title' => 'Posterno reCAPTCHA',
 				'file'  => __FILE__,
 				'pno'   => '0.8.0',
 			)
