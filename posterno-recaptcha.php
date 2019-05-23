@@ -26,6 +26,8 @@
  * @author #
  */
 
+namespace PosternoRecaptcha;
+
 defined( 'ABSPATH' ) || exit;
 
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
@@ -33,7 +35,7 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 }
 
 add_action(
-	'pno_after_init',
+	'posterno_loaded',
 	function() {
 
 		$requirements_check = new \PosternoRequirements\Check(
@@ -45,7 +47,7 @@ add_action(
 		);
 
 		if ( $requirements_check->passes() ) {
-
+			Plugin::instance( __FILE__ );
 		}
 		unset( $requirements_check );
 
