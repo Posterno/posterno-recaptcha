@@ -33,15 +33,15 @@ function pno_recaptcha_add_submit_btn_class( $fields ) {
 
 	if ( $site_key && ! empty( $locations ) && is_array( $locations ) && $is_allowed ) {
 
-		if ( isset( $fields['submit'] ) ) {
+		if ( isset( $fields['submitv'] ) ) {
 
-			$existing_classes = $fields['submit']['attributes']['class'];
+			$existing_classes = $fields['submitv']['attributes']['class'];
 			$new_classes      = $existing_classes . ' g-recaptcha';
 
-			$fields['submit']['attributes']['class']         = $new_classes;
-			$fields['submit']['attributes']['data-sitekey']  = esc_attr( $site_key );
-			$fields['submit']['attributes']['data-callback'] = 'onSubmit';
-			$fields['submit']['attributes']['data-badge']    = 'inline';
+			$fields['submitv']['attributes']['class']         = $new_classes;
+			$fields['submitv']['attributes']['data-sitekey']  = esc_attr( $site_key );
+			$fields['submitv']['attributes']['data-callback'] = 'pnoRecaptchaOnSubmit';
+			$fields['submitv']['attributes']['data-badge']    = 'inline';
 
 		}
 	}
@@ -50,3 +50,37 @@ function pno_recaptcha_add_submit_btn_class( $fields ) {
 
 }
 add_filter( 'pno_login_form_fields', 'pno_recaptcha_add_submit_btn_class' );
+
+add_action(
+	'wp_footer',
+	function() {
+
+		$site_key   = pno_get_option( 'recaptcha_site_key', false );
+		$locations  = pno_get_option( 'recaptcha_location', [] );
+		$is_allowed = false;
+		$form_id    = false;
+
+		foreach ( $locations as $location ) {
+			switch ( $location ) {
+				case 'login':
+					$is_allowed = is_page( pno_get_login_page_id() );
+					$form_id    = 'pno-form-login';
+					break;
+			}
+		}
+
+		if ( $site_key && ! empty( $locations ) && is_array( $locations ) && $is_allowed && $form_id ) {
+
+			?>
+			<script>
+				function pnoRecaptchaOnSubmit(token) {
+					console.log( document.getElementById( "<?php echo esc_js( $form_id ); ?>" ) )
+					document.getElementById( "<?php echo esc_js( $form_id ); ?>" ).submit();
+				}
+			</script>
+			<?php
+
+		}
+
+	}
+);

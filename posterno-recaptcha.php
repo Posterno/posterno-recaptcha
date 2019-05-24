@@ -35,7 +35,7 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 }
 
 add_action(
-	'posterno_loaded',
+	'plugins_loaded',
 	function() {
 
 		$requirements_check = new \PosternoRequirements\Check(
@@ -51,8 +51,7 @@ add_action(
 		}
 		unset( $requirements_check );
 
-	},
-	20
+	}
 );
 
 

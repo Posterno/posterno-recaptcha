@@ -148,6 +148,7 @@ class Plugin {
 		require_once PNO_REC_PLUGIN_DIR . 'includes/settings.php';
 		require_once PNO_REC_PLUGIN_DIR . 'includes/scripts.php';
 		require_once PNO_REC_PLUGIN_DIR . 'includes/markup.php';
+		require_once PNO_REC_PLUGIN_DIR . 'includes/verification.php';
 
 	}
 
