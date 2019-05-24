@@ -35,10 +35,9 @@ add_filter(
 function pno_get_recaptcha_locations() {
 
 	$locations = [
-		'login'              => esc_html__( 'Login form', 'posterno-recaptcha' ),
-		'registration'       => esc_html__( 'Registration form', 'posterno-recaptcha' ),
-		'password_recovery'  => esc_html__( 'Password recovery form', 'posterno-recaptcha' ),
-		'listing_submission' => esc_html__( 'Listing submission form', 'posterno-recaptcha' ),
+		'login'             => esc_html__( 'Login form', 'posterno-recaptcha' ),
+		'registration'      => esc_html__( 'Registration form', 'posterno-recaptcha' ),
+		'password_recovery' => esc_html__( 'Password recovery form', 'posterno-recaptcha' ),
 	];
 
 	return $locations;

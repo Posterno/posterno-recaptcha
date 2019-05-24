@@ -29,7 +29,8 @@ add_action(
 
 				if (
 					( $location === 'login' && is_page( pno_get_login_page_id() ) ) ||
-					( $location === 'registration' && is_page( pno_get_registration_page_id() ) )
+					( $location === 'registration' && is_page( pno_get_registration_page_id() ) ) ||
+					( $location === 'password_recovery' && is_page( pno_get_password_recovery_page_id() ) )
 				) {
 					wp_enqueue_script( 'posterno-recaptcha' );
 				}
