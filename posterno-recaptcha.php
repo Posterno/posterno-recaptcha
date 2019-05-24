@@ -42,7 +42,7 @@ add_action(
 			array(
 				'title' => 'Posterno reCAPTCHA',
 				'file'  => __FILE__,
-				'pno'   => '0.8.0',
+				'pno'   => '0.9.0',
 			)
 		);
 

@@ -132,21 +132,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/recaptcha.git",
-                "reference": "9c17232e45d02e864e94bbc80d1dd346f1f7105e"
+                "reference": "b1b674a50962a73e12125ad746f471c916478978"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/recaptcha/zipball/9c17232e45d02e864e94bbc80d1dd346f1f7105e",
-                "reference": "9c17232e45d02e864e94bbc80d1dd346f1f7105e",
+                "url": "https://api.github.com/repos/google/recaptcha/zipball/b1b674a50962a73e12125ad746f471c916478978",
+                "reference": "b1b674a50962a73e12125ad746f471c916478978",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.2.20|^2.12",
+                "friendsofphp/php-cs-fixer": "^2.2.20|^2.15",
                 "php-coveralls/php-coveralls": "^2.1",
-                "phpunit/phpunit": "^4.8.36|^5.7.27|^6.59|^7"
+                "phpunit/phpunit": "^4.8.36|^5.7.27|^6.59|^7.5.11"
             },
             "type": "library",
             "extra": {
@@ -171,7 +171,7 @@
                 "recaptcha",
                 "spam"
             ],
-            "time": "2019-02-14T07:13:16+00:00"
+            "time": "2019-05-24T12:37:13+00:00"
         },
         {
             "name": "posterno/addon-requirements-check",
@@ -476,12 +476,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "8b713e14f230c238580a2b669b76460c3a611017"
+                "reference": "99091cada94f6d22aa2ba4e4a986ec7571a2d07c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/8b713e14f230c238580a2b669b76460c3a611017",
-                "reference": "8b713e14f230c238580a2b669b76460c3a611017",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/99091cada94f6d22aa2ba4e4a986ec7571a2d07c",
+                "reference": "99091cada94f6d22aa2ba4e4a986ec7571a2d07c",
                 "shasum": ""
             },
             "require": {
@@ -519,7 +519,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-05-23T04:50:52+00:00"
+            "time": "2019-05-23T21:59:35+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
