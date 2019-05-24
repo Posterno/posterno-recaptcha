@@ -28,6 +28,9 @@ function pno_recaptcha_add_submit_btn_class( $fields ) {
 			case 'login':
 				$is_allowed = doing_filter( 'pno_login_form_fields' );
 				break;
+			case 'registration':
+				$is_allowed = doing_filter( 'pno_registration_form_fields' );
+				break;
 		}
 	}
 
@@ -50,6 +53,7 @@ function pno_recaptcha_add_submit_btn_class( $fields ) {
 
 }
 add_filter( 'pno_login_form_fields', 'pno_recaptcha_add_submit_btn_class' );
+add_filter( 'pno_registration_form_fields', 'pno_recaptcha_add_submit_btn_class' );
 
 /**
  * Add markup to the forms pages for the recaptcha field.
@@ -68,6 +72,10 @@ add_action(
 				case 'login':
 					$is_allowed = is_page( pno_get_login_page_id() );
 					$form_id    = 'pno-form-login';
+					break;
+				case 'registration':
+					$is_allowed = is_page( pno_get_registration_page_id() );
+					$form_id    = 'pno-form-registration';
 					break;
 			}
 		}

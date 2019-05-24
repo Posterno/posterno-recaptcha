@@ -41,6 +41,9 @@ if ( is_array( $locations ) && ! empty( $locations ) ) {
 	if ( in_array( 'login', $locations, true ) ) {
 		add_action( 'pno_before_user_login', 'pno_recaptcha_verify_submission' );
 	}
+	if ( in_array( 'registration', $locations, true ) ) {
+		add_action( 'pno_before_registration', 'pno_recaptcha_verify_submission' );
+	}
 }
 
 
