@@ -152,4 +152,13 @@ class Plugin {
 
 	}
 
+	/**
+	 * Allow translations.
+	 *
+	 * @return void
+	 */
+	public function textdomain() {
+		load_plugin_textdomain( 'posterno-recaptcha', false, PNO_REC_PLUGIN_DIR . '/languages' );
+	}
+
 }
