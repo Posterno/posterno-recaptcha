@@ -19,25 +19,9 @@ defined( 'ABSPATH' ) || exit;
  */
 function pno_recaptcha_add_submit_btn_class( $fields ) {
 
-	$site_key   = pno_get_option( 'recaptcha_site_key', false );
-	$locations  = pno_get_option( 'recaptcha_location', [] );
-	$is_allowed = true;
+	$site_key = pno_get_option( 'recaptcha_site_key', false );
 
-	foreach ( $locations as $location ) {
-		switch ( $location ) {
-			case 'login':
-				$is_allowed = doing_filter( 'pno_login_form_fields' );
-				break;
-			case 'registration':
-				$is_allowed = doing_filter( 'pno_registration_form_fields' );
-				break;
-			case 'password_recovery':
-				$is_allowed = doing_filter( 'pno_forgot_password_form_fields' );
-				break;
-		}
-	}
-
-	if ( $site_key && ! empty( $locations ) && is_array( $locations ) && $is_allowed ) {
+	if ( $site_key ) {
 
 		if ( isset( $fields['submit-form'] ) ) {
 
@@ -55,9 +39,20 @@ function pno_recaptcha_add_submit_btn_class( $fields ) {
 	return $fields;
 
 }
-add_filter( 'pno_login_form_fields', 'pno_recaptcha_add_submit_btn_class' );
-add_filter( 'pno_registration_form_fields', 'pno_recaptcha_add_submit_btn_class' );
-add_filter( 'pno_forgot_password_form_fields', 'pno_recaptcha_add_submit_btn_class' );
+
+$locations = pno_get_option( 'recaptcha_location', [] );
+
+if ( is_array( $locations ) && ! empty( $locations ) ) {
+	if ( in_array( 'login', $locations, true ) ) {
+		add_filter( 'pno_login_form_fields', 'pno_recaptcha_add_submit_btn_class' );
+	}
+	if ( in_array( 'registration', $locations, true ) ) {
+		add_filter( 'pno_registration_form_fields', 'pno_recaptcha_add_submit_btn_class' );
+	}
+	if ( in_array( 'password_recovery', $locations, true ) ) {
+		add_filter( 'pno_forgot_password_form_fields', 'pno_recaptcha_add_submit_btn_class' );
+	}
+}
 
 /**
  * Add markup to the forms pages for the recaptcha field.
@@ -66,39 +61,43 @@ add_action(
 	'wp_footer',
 	function() {
 
-		$site_key   = pno_get_option( 'recaptcha_site_key', false );
-		$locations  = pno_get_option( 'recaptcha_location', [] );
-		$is_allowed = false;
-		$form_id    = false;
+		$site_key  = pno_get_option( 'recaptcha_site_key', false );
+		$locations = pno_get_option( 'recaptcha_location', [] );
+		$form_id   = false;
+
+		ob_start();
 
 		foreach ( $locations as $location ) {
-			switch ( $location ) {
-				case 'login':
-					$is_allowed = is_page( pno_get_login_page_id() );
-					$form_id    = 'pno-form-login';
-					break;
-				case 'registration':
-					$is_allowed = is_page( pno_get_registration_page_id() );
-					$form_id    = 'pno-form-registration';
-					break;
-				case 'password_recovery':
-					$is_allowed = is_page( pno_get_password_recovery_page_id() );
-					$form_id    = 'pno-form-forgotPassword';
-					break;
+			if ( $location === 'login' && is_page( pno_get_login_page_id() ) ) {
+				$form_id = 'pno-form-login';
+			} elseif ( $location === 'registration' && is_page( pno_get_registration_page_id() ) ) {
+				$form_id = 'pno-form-registration';
+			} elseif ( $location === 'password_recovery' && is_page( pno_get_password_recovery_page_id() ) ) {
+				$form_id = 'pno-form-forgotPassword';
 			}
 		}
 
-		if ( $site_key && ! empty( $locations ) && is_array( $locations ) && $is_allowed && $form_id ) {
+		?>
+		<script>
+			function pnoRecaptchaOnSubmit(token) {
+				document.getElementById( "<?php echo esc_js( $form_id ); ?>" ).submit();
+			}
+		</script>
+		<?php
 
-			?>
-			<script>
-				function pnoRecaptchaOnSubmit(token) {
-					document.getElementById( "<?php echo esc_js( $form_id ); ?>" ).submit();
+		$markup = ob_get_clean();
+
+		if ( $site_key && ! empty( $locations ) && is_array( $locations ) ) {
+
+			foreach ( $locations as $location ) {
+				if (
+					( $location === 'login' && is_page( pno_get_login_page_id() ) ) ||
+					( $location === 'registration' && is_page( pno_get_registration_page_id() ) ) ||
+					( $location === 'password_recovery' && is_page( pno_get_password_recovery_page_id() ) )
+				) {
+					echo $markup; //phpcs:ignore
 				}
-			</script>
-			<?php
-
+			}
 		}
-
 	}
 );
