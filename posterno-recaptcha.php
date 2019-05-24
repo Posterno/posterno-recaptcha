@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     Posterno reCAPTCHA
- * Plugin URI:      https://posterno.com
+ * Plugin URI:      https://posterno.com/addons/recaptcha
  * Description:     Addon for Posterno, stop spam registrations on your website for free.
  * Author:          Posterno
  * Author URI:      https://posterno.com

@@ -1,4 +1,5 @@
 === Posterno - reCAPTCHA ===
+Contributors: alessandro.tesoro, posterno
 Tags: recaptcha, spam, posterno, registration, login
 Requires at least: 4.9.6
 Tested up to: 5.2
