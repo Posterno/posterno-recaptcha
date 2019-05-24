@@ -21,27 +21,27 @@ function pno_recaptcha_add_submit_btn_class( $fields ) {
 
 	$site_key   = pno_get_option( 'recaptcha_site_key', false );
 	$locations  = pno_get_option( 'recaptcha_location', [] );
-	$is_allowed = false;
+	$is_allowed = true;
 
 	foreach ( $locations as $location ) {
 		switch ( $location ) {
 			case 'login':
-				$is_allowed = is_page( pno_get_login_page_id() ) && doing_filter( 'pno_login_form_fields' );
+				$is_allowed = doing_filter( 'pno_login_form_fields' );
 				break;
 		}
 	}
 
 	if ( $site_key && ! empty( $locations ) && is_array( $locations ) && $is_allowed ) {
 
-		if ( isset( $fields['submitv'] ) ) {
+		if ( isset( $fields['submit-form'] ) ) {
 
-			$existing_classes = $fields['submitv']['attributes']['class'];
+			$existing_classes = $fields['submit-form']['attributes']['class'];
 			$new_classes      = $existing_classes . ' g-recaptcha';
 
-			$fields['submitv']['attributes']['class']         = $new_classes;
-			$fields['submitv']['attributes']['data-sitekey']  = esc_attr( $site_key );
-			$fields['submitv']['attributes']['data-callback'] = 'pnoRecaptchaOnSubmit';
-			$fields['submitv']['attributes']['data-badge']    = 'inline';
+			$fields['submit-form']['attributes']['class']         = $new_classes;
+			$fields['submit-form']['attributes']['data-sitekey']  = esc_attr( $site_key );
+			$fields['submit-form']['attributes']['data-callback'] = 'pnoRecaptchaOnSubmit';
+			$fields['submit-form']['attributes']['data-badge']    = 'inline';
 
 		}
 	}
@@ -51,6 +51,9 @@ function pno_recaptcha_add_submit_btn_class( $fields ) {
 }
 add_filter( 'pno_login_form_fields', 'pno_recaptcha_add_submit_btn_class' );
 
+/**
+ * Add markup to the forms pages for the recaptcha field.
+ */
 add_action(
 	'wp_footer',
 	function() {
@@ -74,7 +77,6 @@ add_action(
 			?>
 			<script>
 				function pnoRecaptchaOnSubmit(token) {
-					console.log( document.getElementById( "<?php echo esc_js( $form_id ); ?>" ) )
 					document.getElementById( "<?php echo esc_js( $form_id ); ?>" ).submit();
 				}
 			</script>
