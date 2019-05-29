@@ -15,7 +15,7 @@ const rimraf  = require( 'rimraf' );
 const fs      = require( 'fs' );
 
 // Folder name to export the files to.
-let exportPath = 'plugin';
+let exportPath = 'posterno-recaptcha';
 
 // Plugin root-level files to include.
 let files = [
