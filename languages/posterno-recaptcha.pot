@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Posterno reCAPTCHA 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/posterno-recaptcha\n"
-"POT-Creation-Date: 2019-05-24 14:41:47+00:00\n"
+"POT-Creation-Date: 2019-05-24 14:46:16+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,55 +16,70 @@ msgstr ""
 
 #: includes/classes/Plugin.php:72 includes/classes/Plugin.php:83
 #: plugin/includes/classes/Plugin.php:72 plugin/includes/classes/Plugin.php:83
+#: plugin/posterno-recaptcha/includes/classes/Plugin.php:72
+#: plugin/posterno-recaptcha/includes/classes/Plugin.php:83
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
 #: includes/settings.php:23 plugin/includes/settings.php:23
+#: plugin/posterno-recaptcha/includes/settings.php:23
 msgid "reCAPTCHA"
 msgstr ""
 
 #: includes/settings.php:38 plugin/includes/settings.php:38
+#: plugin/posterno-recaptcha/includes/settings.php:38
 msgid "Login form"
 msgstr ""
 
 #: includes/settings.php:39 plugin/includes/settings.php:39
+#: plugin/posterno-recaptcha/includes/settings.php:39
 msgid "Registration form"
 msgstr ""
 
 #: includes/settings.php:40 plugin/includes/settings.php:40
+#: plugin/posterno-recaptcha/includes/settings.php:40
 msgid "Password recovery form"
 msgstr ""
 
 #: includes/settings.php:54 plugin/includes/settings.php:54
+#: plugin/posterno-recaptcha/includes/settings.php:54
 msgid "Google reCAPTCHA site key"
 msgstr ""
 
 #: includes/settings.php:55 plugin/includes/settings.php:55
+#: plugin/posterno-recaptcha/includes/settings.php:55
 msgid "Enter your site key."
 msgstr ""
 
 #: includes/settings.php:55 includes/settings.php:58
 #: plugin/includes/settings.php:55 plugin/includes/settings.php:58
+#: plugin/posterno-recaptcha/includes/settings.php:55
+#: plugin/posterno-recaptcha/includes/settings.php:58
 msgid "Get your reCAPTCHA keys from Google"
 msgstr ""
 
 #: includes/settings.php:57 plugin/includes/settings.php:57
+#: plugin/posterno-recaptcha/includes/settings.php:57
 msgid "Google reCAPTCHA secret key"
 msgstr ""
 
 #: includes/settings.php:58 plugin/includes/settings.php:58
+#: plugin/posterno-recaptcha/includes/settings.php:58
 msgid "Enter your site secret key."
 msgstr ""
 
 #: includes/settings.php:60 plugin/includes/settings.php:60
+#: plugin/posterno-recaptcha/includes/settings.php:60
 msgid "Google reCAPTCHA display location"
 msgstr ""
 
 #: includes/settings.php:61 plugin/includes/settings.php:61
+#: plugin/posterno-recaptcha/includes/settings.php:61
 msgid "Select which forms you wish to protect."
 msgstr ""
 
 #: includes/verification.php:31 plugin/includes/verification.php:31
+#: plugin/posterno-recaptcha/includes/verification.php:31
 msgid "Recaptcha validation failed."
 msgstr ""
 
@@ -72,8 +87,8 @@ msgstr ""
 msgid "Posterno reCAPTCHA"
 msgstr ""
 
-#. Author URI of the plugin/theme
-msgid "https://posterno.com"
+#. Plugin URI of the plugin/theme
+msgid "https://posterno.com/addons/recaptcha"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -82,4 +97,8 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "Posterno"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://posterno.com"
 msgstr ""
