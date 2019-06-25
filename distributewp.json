@@ -1,0 +1,5 @@
+{
+  "plugin_slug": "posterno-recaptcha",
+  "deployment_folder": "plugin",
+  "deploy_assets": false
+}
