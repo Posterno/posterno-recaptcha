@@ -2,7 +2,7 @@
 Contributors: alessandro.tesoro, posterno
 Tags: recaptcha, spam, posterno, registration, login
 Requires at least: 4.9.6
-Tested up to: 5.2
+Tested up to: 5.3
 Requires PHP: 5.6
 Stable tag: 1.0.0
 License: GPLv3
